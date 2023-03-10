@@ -62,3 +62,17 @@
 #main-section {
   margin: 2rem;
 }
+
+#takeover {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #404549;
+}

@@ -3,6 +3,7 @@ import React from 'react'
 
 export const ContextMenu = ({coordinates, check, characters}) => {
 
+    if (coordinates.length === 0 ) {return null}
 
     let feedback = (char) => {
         check(char)
