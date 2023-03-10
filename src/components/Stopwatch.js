@@ -3,18 +3,6 @@ import { useStopwatch } from 'react-timer-hook';
 export const Stopwatch = () => {
 
     
-
-// function MyStopwatch() {
-//     const {
-//       seconds,
-//       minutes,
-//       hours,
-//       isRunning,
-//       start,
-//       reset,
-//     } = useStopwatch({ autoStart: true });
-  
-// }
     const seconds = useStopwatch({autoStart: true}).seconds
     const minutes = useStopwatch({autoStart: true}).minutes
     const hours = useStopwatch({autoStart: true}).hours
@@ -27,8 +15,7 @@ export const Stopwatch = () => {
   
       const leftDigitHours = hours >= 10 ? hours.toString()[0] : '0';
       const rightDigitHours = hours >= 10 ? hours.toString()[1] : hours.toString();
-  
-  
+
   
     return (
       <div style={{textAlign: 'center'}}>

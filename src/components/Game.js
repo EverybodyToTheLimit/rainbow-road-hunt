@@ -28,6 +28,7 @@ export const Game = () => {
     },[characters, gameOver])
 
 
+
     function catchTryAttempt (event) {
         setTryAttemp(event)
 
@@ -61,15 +62,19 @@ export const Game = () => {
 
 
 
+
+
   return (
     <div className="container">
-        <Takeover state={gameOver} callback={newGame}/>
+        { gameOver ? (
+        <Takeover callback={newGame}/>
+        ) : null}
         { !gameOver ? (
         <div>
             <div className="header">
                 <Stopwatch />
                 <div>{JSON.stringify(tryAttempt)}</div>
-                <Characters result={tryAttempt}/>
+                <Characters/>
             </div>
             <div id="main-section">
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>
