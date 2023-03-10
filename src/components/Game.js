@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Characters } from './Characters'
 import { MainBody } from './MainBody'
 import image from '../assets/jagtdj95y8361.jpg'
@@ -18,6 +18,11 @@ export const Game = () => {
     ])
 
 
+    useEffect(() => {
+        if (characters.every(el => el.hit === true)) 
+        console.log("End of Game")
+    },[characters])
+
 
     function catchTryAttempt (event) {
         setTryAttemp(event)
@@ -28,10 +33,7 @@ export const Game = () => {
         if (winCheck(tryAttempt, payload)) {;
         const newCharacters = characters.map((c, i) => {
             if (c.name === payload) {
-                let newObj = {...c}
-                newObj.hit = true
-                console.log(newObj)
-                return {newObj}
+                return {...c, "hit": true}
             }
             else return c
         })
