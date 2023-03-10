@@ -1,9 +1,11 @@
 import React from 'react'
 
 
-export const ContextMenu = ({coordinates}) => {
+export const ContextMenu = ({coordinates, check}) => {
 
-    
+    let feedback = () => {
+        check([coordinates, "Johnny Bravo"])
+    }
 
   return (
     <div id="context" style = {{
@@ -13,6 +15,10 @@ export const ContextMenu = ({coordinates}) => {
         height: "100px",
         width: "100px",
         backgroundColor: "black",
-    }}></div>
+    }}>
+        <button onClick={feedback}className="char">First Character</button>
+        <button className="char">Second Character</button>
+        <button className="char">Third Character</button>
+    </div>
   )
 }

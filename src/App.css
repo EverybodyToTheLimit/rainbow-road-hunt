@@ -15,6 +15,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
 }
 
 .header {
@@ -46,4 +47,18 @@
 .counter-colon {
   font-size: 50px;
   color: #404549;
+}
+
+#context {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.char {
+  background-color: aliceblue;
+}
+
+#main-section {
+  margin: 2rem;
 }
