@@ -25,8 +25,19 @@ export const Game = () => {
     }
 
     function callwinCheck  (payload) {
-        winCheck(tryAttempt, "Johnny Bravo");
-
+        if (winCheck(tryAttempt, payload)) {;
+        const newCharacters = characters.map((c, i) => {
+            if (c.name === payload) {
+                let newObj = {...c}
+                newObj.hit = true
+                console.log(newObj)
+                return {newObj}
+            }
+            else return c
+        })
+        setCharacters(newCharacters)
+        }
+    console.log(characters)
     }
 
 
@@ -40,7 +51,7 @@ export const Game = () => {
         </div>
         <div id="main-section">
             <MainBody background={image} tryAttempt={catchTryAttempt}/>
-            <ContextMenu coordinates={tryAttempt} check={callwinCheck}/>
+            <ContextMenu coordinates={tryAttempt} check={callwinCheck} characters={characters}/>
         </div>
     </div>
   )
