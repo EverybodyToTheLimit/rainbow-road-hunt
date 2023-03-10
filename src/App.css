@@ -27,6 +27,7 @@
 }
 
 #main-body {
+  position: relative;
   background-size:contain;
   max-width: 100%;
   max-height: fit-content;
@@ -44,4 +45,5 @@
 
 .counter-colon {
   font-size: 50px;
+  color: #404549;
 }

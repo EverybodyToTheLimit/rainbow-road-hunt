@@ -1,9 +1,9 @@
 import React from 'react'
 
-export const Characters = () => {
+export const Characters = ({result}) => {
   return (
     <div id="characters">
-        <div>Character1</div>
+        <div>{JSON.stringify(result)}</div>
         <div>Character2</div>
         <div>Character3</div>
     </div>
