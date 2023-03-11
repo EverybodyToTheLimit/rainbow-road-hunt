@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStopwatch } from 'react-timer-hook';
-export const Stopwatch = () => {
+export const Stopwatch = ({updateCounter}) => {
 
     
     const seconds = useStopwatch({autoStart: true}).seconds
@@ -16,6 +16,7 @@ export const Stopwatch = () => {
       const leftDigitHours = hours >= 10 ? hours.toString()[0] : '0';
       const rightDigitHours = hours >= 10 ? hours.toString()[1] : hours.toString();
 
+    updateCounter({hours, minutes, seconds})
   
     return (
       <div style={{textAlign: 'center'}}>

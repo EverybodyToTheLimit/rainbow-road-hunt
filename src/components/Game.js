@@ -9,9 +9,8 @@ import { Takeover } from './Takeover'
 
 export const Game = () => {
 
-    
-
-    let [tryAttempt, setTryAttemp] = useState([])
+    let [counter, setCounter] = useState(null)
+    let [tryAttempt, setTryAttemp] = useState({})
     let [characters, setCharacters] = useState([
         {"name" : "Johnny Bravo", "hit" : false, "url": "someurl"},
         {"name" : "Owl", "hit" : false, "url": "someurl"},
@@ -23,7 +22,8 @@ export const Game = () => {
     useEffect(() => {
         if (characters.every(el => el.hit === true)) {
             setGameOver(true)
-            console.log("End of Game")
+            if (counter === null) setCounter(currentCounter.val)
+            console.log(currentCounter.val)
         }
     },[characters, gameOver])
 
@@ -58,21 +58,27 @@ export const Game = () => {
             ]
         )
         setTryAttemp([])
+        setCounter(null)
     }
 
 
+    let currentCounter = {}
+
+    function updateCounter (val)  {
+        currentCounter = {val}
+    }
 
 
 
   return (
     <div className="container">
         { gameOver ? (
-        <Takeover callback={newGame}/>
+        <Takeover callback={newGame} time={counter}/>
         ) : null}
         { !gameOver ? (
         <div>
             <div className="header">
-                <Stopwatch />
+                <Stopwatch updateCounter={updateCounter}/>
                 <div>{JSON.stringify(tryAttempt)}</div>
                 <Characters/>
             </div>
