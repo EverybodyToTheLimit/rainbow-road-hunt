@@ -6,24 +6,17 @@ import { Stopwatch } from './Stopwatch'
 import { ContextMenu } from './ContextMenu'
 import winCheck from './winCheck'
 import { Takeover } from './Takeover'
-import johnny from '../assets/johnny.png'
-import owl from '../assets/owl.png'
-import waldo from '../assets/waldo.png'
 
-export const Game = () => {
+export const Game = ({chars, gameFinished}) => {
 
     let [counter, setCounter] = useState(null)
     let [tryAttempt, setTryAttemp] = useState({})
-    let [characters, setCharacters] = useState([
-        {"name" : "Johnny Bravo", "hit" : false, "url": johnny},
-        {"name" : "Owl", "hit" : false, "url": owl},
-        {"name" : "Waldo", "hit" : false, "url": waldo}
-    ])
+    let [characters, setCharacters] = useState([])
     let [gameOver, setGameOver] = useState(false)
 
 
     useEffect(() => {
-        if (characters.every(el => el.hit === true)) {
+        if (characters.length !== 0 && characters.every(el => el.hit === true)) {
             setGameOver(true)
             if (counter === null) setCounter(currentCounter.val)
             console.log(currentCounter.val)
@@ -31,7 +24,7 @@ export const Game = () => {
     },[characters, gameOver])
     
     useEffect(() => {
-        console.log("component mounted")
+        setCharacters(chars)
     },[])
 
 
@@ -55,16 +48,7 @@ export const Game = () => {
     }
 
     function newGame () {
-        setGameOver(false)
-        setCharacters(
-            [
-                {"name" : "Johnny Bravo", "hit" : false, "url": johnny},
-                {"name" : "Owl", "hit" : false, "url": owl},
-                {"name" : "Waldo", "hit" : false, "url": waldo}
-            ]
-        )
-        setTryAttemp([])
-        setCounter(null)
+        gameFinished()
     }
 
 
