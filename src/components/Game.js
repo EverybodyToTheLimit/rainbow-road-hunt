@@ -84,7 +84,7 @@ export const Game = () => {
             </div>
             <div id="main-section">
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>
-                <ContextMenu coordinates={tryAttempt} check={callwinCheck} characters={characters}/>
+                <ContextMenu coordinates={tryAttempt} check={callwinCheck} characters={characters}/> 
             </div>
         </div>
         ) : null}

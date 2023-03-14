@@ -1,26 +1,27 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 
 export const ContextMenu = ({coordinates, check, characters}) => {
 
-    if (coordinates.length === 0 ) {return null}
+
 
     let feedback = (char) => {
         check(char)
     }
 
-  return (
+    if (Object.keys(coordinates).length === 0) {return null}
+    else {
+    return (
     <div id="context" style = {{
         position:"absolute",
-        left: coordinates.pgx + 'px',         
-        top: coordinates.pgy + 'px',
-        height: "100px",
-        width: "100px",
-        backgroundColor: "black",
+        left: coordinates.pgx - 75 + 'px',         
+        top: coordinates.pgy - 75 + 'px',
     }}>
-        <button onClick={() => feedback(characters[0].name)} className="char">{characters[0].name}</button>
-        <button onClick={() => feedback(characters[1].name)} className="char">{characters[1].name}</button>
-        <button onClick={() => feedback(characters[2].name)} className="char">{characters[2].name}</button>
+        <div id="target"></div>
+        <button onClick={() => feedback(characters[0].name)} id="left" className="char bounce-in">{characters[0].name}</button>
+        <button onClick={() => feedback(characters[1].name)} className="char bounce-in">{characters[1].name}</button>
+        <button onClick={() => feedback(characters[2].name)} id="right" className="char bounce-in">{characters[2].name}</button>
     </div>
   )
+    }
 }
