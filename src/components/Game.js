@@ -6,15 +6,18 @@ import { Stopwatch } from './Stopwatch'
 import { ContextMenu } from './ContextMenu'
 import winCheck from './winCheck'
 import { Takeover } from './Takeover'
+import johnny from '../assets/johnny.png'
+import owl from '../assets/owl.png'
+import waldo from '../assets/waldo.png'
 
 export const Game = () => {
 
     let [counter, setCounter] = useState(null)
     let [tryAttempt, setTryAttemp] = useState({})
     let [characters, setCharacters] = useState([
-        {"name" : "Johnny Bravo", "hit" : false, "url": "someurl"},
-        {"name" : "Owl", "hit" : false, "url": "someurl"},
-        {"name" : "Waldo", "hit" : false, "url": "someurl"}
+        {"name" : "Johnny Bravo", "hit" : false, "url": johnny},
+        {"name" : "Owl", "hit" : false, "url": owl},
+        {"name" : "Waldo", "hit" : false, "url": waldo}
     ])
     let [gameOver, setGameOver] = useState(false)
 
@@ -26,7 +29,10 @@ export const Game = () => {
             console.log(currentCounter.val)
         }
     },[characters, gameOver])
-
+    
+    useEffect(() => {
+        console.log("component mounted")
+    },[])
 
 
     function catchTryAttempt (event) {
@@ -52,9 +58,9 @@ export const Game = () => {
         setGameOver(false)
         setCharacters(
             [
-                {"name" : "Johnny Bravo", "hit" : false, "url": "someurl"},
-                {"name" : "Owl", "hit" : false, "url": "someurl"},
-                {"name" : "Waldo", "hit" : false, "url": "someurl"}
+                {"name" : "Johnny Bravo", "hit" : false, "url": johnny},
+                {"name" : "Owl", "hit" : false, "url": owl},
+                {"name" : "Waldo", "hit" : false, "url": waldo}
             ]
         )
         setTryAttemp([])
@@ -79,7 +85,6 @@ export const Game = () => {
         <div>
             <div className="header">
                 <Stopwatch updateCounter={updateCounter}/>
-                <div>{JSON.stringify(tryAttempt)}</div>
                 <Characters/>
             </div>
             <div id="main-section">

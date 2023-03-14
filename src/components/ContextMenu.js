@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React from 'react'
 
 
 export const ContextMenu = ({coordinates, check, characters}) => {
@@ -18,9 +18,25 @@ export const ContextMenu = ({coordinates, check, characters}) => {
         top: coordinates.pgy - 75 + 'px',
     }}>
         <div id="target"></div>
-        <button onClick={() => feedback(characters[0].name)} id="left" className="char bounce-in">{characters[0].name}</button>
-        <button onClick={() => feedback(characters[1].name)} className="char bounce-in">{characters[1].name}</button>
-        <button onClick={() => feedback(characters[2].name)} id="right" className="char bounce-in">{characters[2].name}</button>
+        <button
+        style={{
+            backgroundImage: `url(${characters[0].url})` 
+        }} 
+        onClick={() => feedback(characters[0].name)} id="left" className="char bounce-in"></button>
+        
+        
+        <button 
+        style={{
+            backgroundImage: `url(${characters[1].url})` 
+        }} 
+        
+        onClick={() => feedback(characters[1].name)} id="mid" className="char bounce-in"></button>
+        <button 
+        style={{
+            backgroundImage: `url(${characters[2].url})` 
+        }} 
+        
+        onClick={() => feedback(characters[2].name)} id="right" className="char bounce-in"></button>
     </div>
   )
     }

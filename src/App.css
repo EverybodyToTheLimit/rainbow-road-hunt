@@ -58,7 +58,8 @@
 }
 
 .char {
-  background-color: aliceblue;
+  background-color: #404549be;
+  background-size: cover;
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -123,3 +124,46 @@
   100% {transform: scale(1);}
 } 
 
+@media (max-width: 1024px) {
+  .char {
+    width: 50px;
+    height: 50px;
+  }
+  #context {
+    height: 100px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+
+  .char {
+    width: 75px;
+    height: 75px;
+  }
+
+  #left {
+
+    position: absolute;
+    left: -25px;
+    top: -22px;
+
+  }
+  #right{
+    position: absolute;
+    right: -170px;
+    top: -22px;
+
+
+  }
+  #mid {
+    position: absolute;
+    right: -110px;
+    top: -35px;
+
+  }
+
+  #target {
+    right: -90px;
+  }
+}
