@@ -7,17 +7,18 @@ export const WelcomeScreen = () => {
 
     let [active, setActive]  = useState(true)
     let [chars, setCharacters] = useState([])
+    let [loaded, setLoaded] = useState(false)
 
-    let toggleState = () => {
-        (active) ? setActive(false) : setActive(true)
-    }
+    setTimeout(() => { 
+        setLoaded(true)
+    }, 5000)
 
     let startNewGame = () => {
-        toggleState()
+        setActive(false)
     }
 
     let gameFinished = () => {
-        toggleState()
+        setActive(true)
     }
 
     useEffect(() => {
@@ -25,13 +26,32 @@ export const WelcomeScreen = () => {
     },[])
 
 
+
   return (
-    <div>
-        { active ? (
+    <div className="container">
+        {!loaded && <div className="loader">
+                        <div className="loader-inner">
+                            <div className="loader-line-wrap"><div className="loader-line"></div></div>
+                            <div className="loader-line-wrap"><div className="loader-line"></div></div>
+                            <div className="loader-line-wrap"><div className="loader-line"></div></div>
+                            <div className="loader-line-wrap"><div className="loader-line"></div></div>
+                            <div className="loader-line-wrap"><div className="loader-line"></div></div>
+                        </div>
+                    </div>}
+        { loaded && active ? (
             <div>
+                <h1 className="gradient-text">WELCOME TO RAINBOW ROAD HUNT!</h1>
+                <h2 className="gradient-text">Hit the button to draw your targets</h2>
+                <div>
+                    <div className="char"></div>
+                    <div className="char"></div>
+                    <div className="char"></div>
+                </div>
                 <button onClick={startNewGame}>Start New Game</button>
             </div>
-        ) : <Game chars={chars} gameFinished={gameFinished}/>}
+        ) : null }
+        {!active ? <Game chars={chars} gameFinished={gameFinished}/> : null}
+        
     </div>
   )
 }
