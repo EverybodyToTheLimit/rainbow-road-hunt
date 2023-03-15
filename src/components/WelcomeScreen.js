@@ -22,6 +22,9 @@ export const WelcomeScreen = () => {
 
     let startNewGame = () => {
         // setChosenCharacters(_.sampleSize(chars, 3))   use Loadash in prod
+        setChar1Loaded(true)
+        setChar2Loaded(true)
+        setChar3Loaded(true)
         setTimeout(() => { setChar1Loaded(chars[0].url)}, 2000)
         setTimeout(() => { setChar2Loaded(chars[1].url)}, 4000)
         setTimeout(() => { setChar3Loaded(chars[2].url)}, 6000)
@@ -43,7 +46,7 @@ export const WelcomeScreen = () => {
 
 
   return (
-    <div>
+    <div className="main-container">
         {!loaded && <div className="loader">
                         <div className="loader-inner">
                             <div className="loader-line-wrap"><div className="loader-line"></div></div>
@@ -58,9 +61,9 @@ export const WelcomeScreen = () => {
                 <h1 className="gradient-text">WELCOME TO RAINBOW ROAD HUNT!</h1>
                 <h2 className="gradient-text">Hit the button to draw your targets</h2>
                 <div className="char-container">
-                    <div style={{backgroundImage: `url(${char1Loaded})`}} className="char-select"></div>
-                    <div style={{backgroundImage: `url(${char2Loaded})`}} className="char-select"></div>
-                    <div style={{backgroundImage: `url(${char3Loaded})`}} className="char-select"></div>
+                    <div style={{backgroundImage: `url(${char1Loaded})`}} className={(char1Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
+                    <div style={{backgroundImage: `url(${char2Loaded})`}} className={(char2Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
+                    <div style={{backgroundImage: `url(${char3Loaded})`}} className={(char3Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
                 </div>
                 <button onClick={startNewGame}>Start New Game</button>
             </div>

@@ -20,7 +20,7 @@ export const Stopwatch = ({updateCounter}) => {
   
     return (
       <div style={{textAlign: 'center'}}>
-        <div style={{fontSize: '100px'}}>
+        <div style={{fontSize: '100px' , display: 'flex'}}>
           <span className="counter">{leftDigitHours}</span>
           <span className="counter">{rightDigitHours}</span>
           <span className="counter-colon">:</span>
