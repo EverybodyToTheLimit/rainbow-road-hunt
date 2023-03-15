@@ -35,7 +35,7 @@ export const Game = ({chars, gameFinished}) => {
 
     function callwinCheck  (payload) {
         if (winCheck(tryAttempt, payload)) {;
-        const newCharacters = characters.map((c, i) => {
+        const newCharacters = characters.map((c) => {
             if (c.name === payload) {
                 return {...c, "hit": true}
             }
@@ -70,7 +70,7 @@ export const Game = ({chars, gameFinished}) => {
             <div className="header">
                 <Stopwatch updateCounter={updateCounter}/>
                 <h2></h2>
-                <Characters chars={chars}/>
+                <Characters chars={characters}/>
             </div>
             <div id="main-section">
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>

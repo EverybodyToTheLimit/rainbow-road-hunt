@@ -317,6 +317,13 @@
   gap: 1rem;
 }
 
+.cross {
+
+  opacity: 0.8;
+  width: 110%;
+  height: 110%;
+}
+
 #header {
   top: -100px;
   transition: top 0.5s ease-in-out;
