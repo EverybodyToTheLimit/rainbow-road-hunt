@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { characters } from './DataLoader'
 import { Game } from './Game'
+import _ from 'lodash'
 
 
 export const WelcomeScreen = () => {
@@ -8,16 +9,30 @@ export const WelcomeScreen = () => {
     let [active, setActive]  = useState(true)
     let [chars, setCharacters] = useState([])
     let [loaded, setLoaded] = useState(false)
+    let [chosenCharacters, setChosenCharacters] = useState([])
+    let [char1Loaded, setChar1Loaded] = useState(false)
+    let [char2Loaded, setChar2Loaded] = useState(false)
+    let [char3Loaded, setChar3Loaded] = useState(false)
 
+    
+    
     setTimeout(() => { 
         setLoaded(true)
-    }, 5000)
+    }, 2000)
 
     let startNewGame = () => {
-        setActive(false)
+        // setChosenCharacters(_.sampleSize(chars, 3))   use Loadash in prod
+        setTimeout(() => { setChar1Loaded(chars[0].url)}, 2000)
+        setTimeout(() => { setChar2Loaded(chars[1].url)}, 4000)
+        setTimeout(() => { setChar3Loaded(chars[2].url)}, 6000)
+        setTimeout(() => { setActive(false)}, 10000)
     }
 
     let gameFinished = () => {
+        setLoaded(false)
+        setChar1Loaded(false)
+        setChar2Loaded(false)
+        setChar3Loaded(false)
         setActive(true)
     }
 
@@ -39,13 +54,13 @@ export const WelcomeScreen = () => {
                         </div>
                     </div>}
         { loaded && active ? (
-            <div>
+            <div className="welcome-container">
                 <h1 className="gradient-text">WELCOME TO RAINBOW ROAD HUNT!</h1>
                 <h2 className="gradient-text">Hit the button to draw your targets</h2>
-                <div>
-                    <div className="char"></div>
-                    <div className="char"></div>
-                    <div className="char"></div>
+                <div className="char-container">
+                    <div style={{backgroundImage: `url(${char1Loaded})`}} className="char"></div>
+                    <div style={{backgroundImage: `url(${char2Loaded})`}} className="char"></div>
+                    <div style={{backgroundImage: `url(${char3Loaded})`}} className="char"></div>
                 </div>
                 <button onClick={startNewGame}>Start New Game</button>
             </div>

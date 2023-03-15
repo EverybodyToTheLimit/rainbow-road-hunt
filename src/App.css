@@ -239,6 +239,22 @@
   top: 35px;
 }
 
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.char-container {
+  display: flex;
+  gap: 1rem;
+}
+
 @keyframes spin {
   0%, 15% {
   transform: rotate(0);

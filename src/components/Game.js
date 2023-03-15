@@ -69,7 +69,7 @@ export const Game = ({chars, gameFinished}) => {
         <div>
             <div className="header">
                 <Stopwatch updateCounter={updateCounter}/>
-                <Characters/>
+                <Characters chars={chars}/>
             </div>
             <div id="main-section">
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>

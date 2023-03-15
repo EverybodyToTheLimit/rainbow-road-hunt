@@ -4,20 +4,14 @@ import owl from '../assets/owl.png'
 import waldo from '../assets/waldo.png'
 
 
-export const Characters = () => {
-
-    let [characters, setCharacters] = useState([
-        {"name" : "Johnny Bravo", "hit" : false, "url": johnny},
-        {"name" : "Owl", "hit" : false, "url": owl},
-        {"name" : "Waldo", "hit" : false, "url": waldo}
-    ])
+export const Characters = ({chars}) => {
 
 
   return (
     <div id="characters">
-        <div>Character1</div>
-        <div>Character2</div>
-        <div>Character3</div>
+        <div className="char" style={{backgroundImage: `url(${chars[0].url})`}}></div>
+        <div className="char" style={{backgroundImage: `url(${chars[1].url})`}}></div>
+        <div className="char" style={{backgroundImage: `url(${chars[2].url})`}}></div>
     </div>
   )
 }
