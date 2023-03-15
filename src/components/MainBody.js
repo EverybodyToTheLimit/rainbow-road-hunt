@@ -27,7 +27,7 @@ export const MainBody = ({background, tryAttempt}) => {
     }
 
   return (
-    <div> {JSON.stringify(mouse, null, 2)}
+    <div>
     <img alt="main" id="main-body" ref={target} onClick={handleClick} src={background}></img>
     </div>
   )

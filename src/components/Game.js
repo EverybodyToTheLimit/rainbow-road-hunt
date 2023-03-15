@@ -69,6 +69,7 @@ export const Game = ({chars, gameFinished}) => {
         <div>
             <div className="header">
                 <Stopwatch updateCounter={updateCounter}/>
+                <h2>Info</h2>
                 <Characters chars={chars}/>
             </div>
             <div id="main-section">

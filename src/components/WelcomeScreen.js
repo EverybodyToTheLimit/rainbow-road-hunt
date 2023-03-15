@@ -43,7 +43,7 @@ export const WelcomeScreen = () => {
 
 
   return (
-    <div className="container">
+    <div>
         {!loaded && <div className="loader">
                         <div className="loader-inner">
                             <div className="loader-line-wrap"><div className="loader-line"></div></div>
@@ -58,9 +58,9 @@ export const WelcomeScreen = () => {
                 <h1 className="gradient-text">WELCOME TO RAINBOW ROAD HUNT!</h1>
                 <h2 className="gradient-text">Hit the button to draw your targets</h2>
                 <div className="char-container">
-                    <div style={{backgroundImage: `url(${char1Loaded})`}} className="char"></div>
-                    <div style={{backgroundImage: `url(${char2Loaded})`}} className="char"></div>
-                    <div style={{backgroundImage: `url(${char3Loaded})`}} className="char"></div>
+                    <div style={{backgroundImage: `url(${char1Loaded})`}} className="char-select"></div>
+                    <div style={{backgroundImage: `url(${char2Loaded})`}} className="char-select"></div>
+                    <div style={{backgroundImage: `url(${char3Loaded})`}} className="char-select"></div>
                 </div>
                 <button onClick={startNewGame}>Start New Game</button>
             </div>
