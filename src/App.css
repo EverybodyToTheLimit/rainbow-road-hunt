@@ -20,7 +20,9 @@
 
 .main-container {
   display: flex;
-  height: 100vh;
+  /* height: 100vh; */
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 
@@ -28,7 +30,7 @@
   background-color:rgba(255, 250, 240, 0.425);
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
   justify-items: center;
   padding: 1rem;
@@ -127,7 +129,19 @@
   margin-top: 2rem;
 }
 
+#nope {
 
+    z-index: 10;
+    font-size: 20rem;
+    text-align: center;
+    margin: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+
+}
 
 .char:hover{
   opacity: 0.8;
@@ -377,42 +391,16 @@
   100% {transform: scale(1);}
 } 
 
-@media (max-width: 1024px) {
-  .char {
-    width: 50px;
-    height: 50px;
-  }
-
-  .char-select {
-    width: 50px;
-    height: 50px;
-  }
-
-  #context {
-    height: 100px;
-  }
-
-  .counter {
-    flex: 0 1 50%;
-    font-size: 15px;
-    background-color: #404549;
-    border-radius: 5px;
-    padding: 5px 6px;
-    color: white;
-}
-
-.counter-colon {
-  font-size: 25px;
-  color: #404549;
-}
-
-.char-welcome {
-  width: 100px;
-  height: 100px;
-}
+@keyframes bounceOut {
+  0% {transform: scale(1);}
+  25% {transform: scale(.95);}
+  50% {opacity: 1;
+     transform: scale(1.1);}
+  100% {opacity: 0;
+     transform: scale(.3);}
+} 
 
 
-}
 
 @media (min-width: 1024px) {
 
@@ -448,4 +436,63 @@
   #target {
     right: -90px;
   }
+}
+
+@media (max-width: 1024px) {
+  .char {
+    width: 50px;
+    height: 50px;
+  }
+
+  .char-select {
+    width: 50px;
+    height: 50px;
+  }
+
+  #context {
+    height: 100px;
+  }
+
+  .counter {
+    flex: 0 1 50%;
+    font-size: 15px;
+    background-color: #404549;
+    border-radius: 5px;
+    padding: 5px 6px;
+    color: white;
+}
+
+.counter-colon {
+  font-size: 25px;
+  color: #404549;
+}
+
+.char-welcome {
+  width: 100px;
+  height: 100px;
+}
+
+#nope {
+
+  font-size: 5rem;
+  text-align: center;
+  margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+}
+
+@media (max-width: 500px) {
+
+  #nope {
+    font-size: 5rem;
+    top: 30%;
+    left: 50%;
+  }
+
 }

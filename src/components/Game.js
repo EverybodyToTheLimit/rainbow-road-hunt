@@ -6,6 +6,8 @@ import { Stopwatch } from './Stopwatch'
 import { ContextMenu } from './ContextMenu'
 import winCheck from './winCheck'
 import { Takeover } from './Takeover'
+import { noArray } from './nope'
+import _ from 'lodash'
 
 export const Game = ({chars, gameFinished}) => {
 
@@ -13,7 +15,10 @@ export const Game = ({chars, gameFinished}) => {
     let [tryAttempt, setTryAttemp] = useState({})
     let [characters, setCharacters] = useState([])
     let [gameOver, setGameOver] = useState(false)
+    let [nope, setNope] = useState("")
 
+
+    
 
     useEffect(() => {
         if (characters.length !== 0 && characters.every(el => el.hit === true)) {
@@ -39,11 +44,18 @@ export const Game = ({chars, gameFinished}) => {
             if (c.name === payload) {
                 return {...c, "hit": true}
             }
-            else return c
+            else 
+            return c
+            
         })
         setCharacters(newCharacters)
         }
-    setTryAttemp([])
+        else {
+            setTryAttemp([])
+            setNope(_.sample(noArray))
+            setTimeout(() => { setNope("")}, 500)
+        }
+
     console.log(characters)
     }
 
@@ -69,10 +81,10 @@ export const Game = ({chars, gameFinished}) => {
         <div>
             <div className="header">
                 <Stopwatch updateCounter={updateCounter}/>
-                <h2></h2>
                 <Characters chars={characters}/>
             </div>
             <div id="main-section">
+                {nope ? <div id="nope">{nope}</div> : null}
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>
                 <ContextMenu coordinates={tryAttempt} check={callwinCheck} characters={characters}/> 
             </div>
