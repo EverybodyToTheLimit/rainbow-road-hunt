@@ -31,6 +31,7 @@ export const WelcomeScreen = () => {
         setTimeout(() => { setActive(false)}, 10000)
     }
 
+
     let gameFinished = () => {
         setLoaded(false)
         setChar1Loaded(false)

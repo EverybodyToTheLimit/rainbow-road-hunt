@@ -22,8 +22,13 @@ let DataLoader = () => {
        {"name" : "Waldo", "hit" : false, "url": waldo}
        ]
     
+    let leaderboard = [
+        {"initials" : "BAR", "time": 6, "characters" : ["johnny", "owl", "waldo"]},
+        {"initials" : "BAZ", "time": 18, "characters" : ["johnny", "owl", "waldo"]},
+        {"initials" : "BOO", "time": 123, "characters" : ["johnny", "owl", "waldo"]},
+    ]
 
 export {
-DataLoader,
-characters
+characters,
+leaderboard
 }

@@ -24,7 +24,7 @@ export const Game = ({chars, gameFinished}) => {
         if (characters.length !== 0 && characters.every(el => el.hit === true)) {
             setGameOver(true)
             if (counter === null) setCounter(currentCounter.val)
-            console.log(currentCounter.val)
+
         }
     },[characters, gameOver])
     
@@ -39,7 +39,7 @@ export const Game = ({chars, gameFinished}) => {
     }
 
     function callwinCheck  (payload) {
-        if (winCheck(tryAttempt, payload)) {;
+        if (winCheck(tryAttempt, payload)) {
         const newCharacters = characters.map((c) => {
             if (c.name === payload) {
                 return {...c, "hit": true}
@@ -56,7 +56,6 @@ export const Game = ({chars, gameFinished}) => {
             setTimeout(() => { setNope("")}, 500)
         }
 
-    console.log(characters)
     }
 
     function newGame () {
