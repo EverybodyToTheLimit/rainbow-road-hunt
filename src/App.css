@@ -314,11 +314,15 @@ ul {
 .welcome-container {
   display: flex;
   flex-direction: column;
-  justify-content:space-evenly;
+  justify-content:center;
   align-content: center;
   align-items: center;
   text-align: center;
-  gap: 1rem;
+  gap: 10vh;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 10vh;
+
 }
 
 .char-container {

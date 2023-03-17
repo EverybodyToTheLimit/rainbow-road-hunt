@@ -27,7 +27,7 @@ export const MainBody = ({background, tryAttempt}) => {
     }
 
   return (
-    <div>
+    <div> {"targetX:" + (mouse.x / mouse.elementWidth).toFixed(3) + " targetY:" + (mouse.y / mouse.elementHeight).toFixed(3)}
     <img alt="main" id="main-body" ref={target} onClick={handleClick} src={background}></img>
     </div>
   )
