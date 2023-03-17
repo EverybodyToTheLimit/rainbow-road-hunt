@@ -21,16 +21,15 @@ export const WelcomeScreen = () => {
     }, 2000)
 
     let startNewGame = () => {
-        // setChosenCharacters(_.sampleSize(chars, 3))   use Loadash in prod
+        setChosenCharacters(_.sampleSize(chars, 3))
         setChar1Loaded(true)
         setChar2Loaded(true)
         setChar3Loaded(true)
-        setTimeout(() => { setChar1Loaded(chars[0].url)}, 2000)
-        setTimeout(() => { setChar2Loaded(chars[1].url)}, 4000)
-        setTimeout(() => { setChar3Loaded(chars[2].url)}, 6000)
+        setTimeout(() => { setChar1Loaded(chosenCharacters[0].url)}, 2000)
+        setTimeout(() => { setChar2Loaded(chosenCharacters[1].url)}, 4000)
+        setTimeout(() => { setChar3Loaded(chosenCharacters[2].url)}, 6000)
         setTimeout(() => { setActive(false)}, 10000)
     }
-
 
     let gameFinished = () => {
         setLoaded(false)
@@ -69,7 +68,7 @@ export const WelcomeScreen = () => {
                 <button onClick={startNewGame}>Start New Game</button>
             </div>
         ) : null }
-        {!active ? <Game chars={chars} gameFinished={gameFinished}/> : null}
+        {!active ? <Game chars={chosenCharacters} gameFinished={gameFinished}/> : null}
         
     </div>
   )

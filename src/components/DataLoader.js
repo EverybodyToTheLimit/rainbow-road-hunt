@@ -29,13 +29,13 @@ import yellowpuffle from '../assets/characters/yellow-puffle.png'
 import yoshi from '../assets/characters/yoshi.png'
 import zoidberg from '../assets/characters/zoidberg.png'
 
-let DataLoader = () => {
+let DataLoader = () => {}
 
 
     let winningCoords = [
         {"name":"big-bird", "x" : 0.184, "xmin" : 0.166, "xmax" : 0.207, "y" : 0.445, "ymin" : 0.420, "ymax" : 0.466},
         {"name":"bugs-bunny", "x" : 0.513, "xmin" : 0.495, "xmax" : 0.540, "y" : 0.427, "ymin" : 0.405, "ymax" : 0.450},
-        {"name":"catdog", "x" : 0.149, "xmin" : 0.089, "xmax" : 0.211, "y" : 0.985, "ymin" : 0.994, "ymax" : 0.949},
+        {"name":"catdog", "x" : 0.149, "xmin" : 0.089, "xmax" : 0.211, "y" : 0.985, "ymin" : 0.949, "ymax" : 0.999},
         {"name":"dora-maar", "x" : 0.583, "xmin" : 0.563, "xmax" : 0.618, "y" : 0.201, "ymin" : 0.193, "ymax" : 0.230},
         {"name":"dr-doom", "x" : 0.298, "xmin" : 0.270, "xmax" : 0.329, "y" : 0.608, "ymin" : 0.574, "ymax" : 0.628},
         {"name":"dr-manhattan", "x" : 0.390, "xmin" : 0.369, "xmax" : 0.410, "y" : 0.121, "ymin" : 0.105, "ymax" : 0.169},
@@ -66,7 +66,7 @@ let DataLoader = () => {
 
     ]
 
-    }
+    
 
     
     let characters = [
@@ -110,7 +110,8 @@ let DataLoader = () => {
 
 export {
 characters,
-leaderboard
+leaderboard,
+winningCoords
 }
 
 
