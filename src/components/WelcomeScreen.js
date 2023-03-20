@@ -21,7 +21,6 @@ export const WelcomeScreen = () => {
     }, 2000)
 
     let startNewGame = () => {
-        setChosenCharacters(_.sampleSize(chars, 3))
         setChar1Loaded(true)
         setChar2Loaded(true)
         setChar3Loaded(true)
@@ -37,10 +36,11 @@ export const WelcomeScreen = () => {
         setChar2Loaded(false)
         setChar3Loaded(false)
         setActive(true)
+        setChosenCharacters(_.sampleSize(characters, 3))
     }
 
     useEffect(() => {
-        setCharacters(characters)
+        setChosenCharacters(_.sampleSize(characters, 3))
     },[])
 
 

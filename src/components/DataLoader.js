@@ -47,7 +47,7 @@ let DataLoader = () => {}
         {"name":"jasper-beardly", "x" : 0.199, "xmin" : 0.182, "xmax" : 0.221, "y" : 0.793, "ymin" : 0.778, "ymax" : 0.812},
         {"name":"johnny", "x" : 0.201, "xmin" : 0.191, "xmax" : 0.212, "y" : 0.292, "ymin" : 0.260, "ymax" : 0.306},
         {"name":"kermit", "x" : 0.330, "xmin" : 0.309, "xmax" : 0.361, "y" : 0.737, "ymin" : 0.720, "ymax" : 0.756},
-        {"name":"knuckles", "x" : 0.960, "xmin" : 0.941, "xmax" : 0.999, "y" : 0.130, "ymin" : 0.97, "ymax" : 0.162},
+        {"name":"knuckles", "x" : 0.960, "xmin" : 0.941, "xmax" : 0.999, "y" : 0.130, "ymin" : 0.097, "ymax" : 0.162},
         {"name":"leonardo", "x" : 0.340, "xmin" : 0.323, "xmax" : 0.359, "y" : 0.574, "ymin" : 0.554, "ymax" : 0.600},
         {"name":"masterchief", "x" : 0.229, "xmin" : 0.192, "xmax" : 0.247, "y" : 0.500, "ymin" : 0.466, "ymax" : 0.522},
         {"name":"mordecai", "x" : 0.418, "xmin" : 0.393, "xmax" : 0.438, "y" : 0.519, "ymin" : 0.488, "ymax" : 0.554},

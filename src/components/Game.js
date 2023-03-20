@@ -48,6 +48,7 @@ export const Game = ({chars, gameFinished}) => {
             return c
             
         })
+        setTryAttemp([])
         setCharacters(newCharacters)
         }
         else {
