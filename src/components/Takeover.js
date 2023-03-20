@@ -33,7 +33,7 @@ export const Takeover = ({callback, time}) => {
               <li className="result-header">Position</li><li >Initials</li><li>Time</li>
               {leaderTable}
             </ul>
-          <button onClick={callback}>Start New Game?</button>
+          <button className="button-85" onClick={callback}>Start New Game?</button>
           <Confetti/>
 
     </div>

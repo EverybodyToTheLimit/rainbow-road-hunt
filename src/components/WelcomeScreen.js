@@ -70,7 +70,7 @@ export const WelcomeScreen = () => {
                     <div style={{backgroundImage: `url(${char2Loaded})`}} className={(char2Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
                     <div style={{backgroundImage: `url(${char3Loaded})`}} className={(char3Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
                 </div>
-                <button onClick={startNewGame}>Start New Game</button>
+                <button className="button-85" onClick={startNewGame}>Start New Game</button>
             </div>
         ) : null }
         {!active ? <Game chars={chosenCharacters} gameFinished={gameFinished}/> : null}
