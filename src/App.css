@@ -133,7 +133,7 @@ ul {
   margin-top: 2rem;
 }
 
-#nope {
+#nope, #starting {
 
     z-index: 10;
     font-size: 20rem;
@@ -145,6 +145,10 @@ ul {
     margin-right: -50%;
     transform: translate(-50%, -50%);
 
+}
+
+#starting { 
+  background-color: #e1644198;
 }
 
 .char:hover{
@@ -483,7 +487,7 @@ ul {
   height: 100px;
 }
 
-#nope {
+#nope, #starting {
 
   font-size: 5rem;
   text-align: center;
@@ -495,15 +499,19 @@ ul {
   transform: translate(-50%, -50%);
 }
 
+#starting { 
+  background-color: #e1644198;
+}
 
 }
 
 @media (max-width: 500px) {
 
-  #nope {
+  #nope, #starting {
     font-size: 5rem;
     top: 30%;
     left: 50%;
   }
 
 }
+

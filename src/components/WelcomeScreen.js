@@ -13,6 +13,7 @@ export const WelcomeScreen = () => {
     let [char1Loaded, setChar1Loaded] = useState(false)
     let [char2Loaded, setChar2Loaded] = useState(false)
     let [char3Loaded, setChar3Loaded] = useState(false)
+    let [starting, setStarting] = useState("")
 
     
     
@@ -27,7 +28,10 @@ export const WelcomeScreen = () => {
         setTimeout(() => { setChar1Loaded(chosenCharacters[0].url)}, 2000)
         setTimeout(() => { setChar2Loaded(chosenCharacters[1].url)}, 4000)
         setTimeout(() => { setChar3Loaded(chosenCharacters[2].url)}, 6000)
-        setTimeout(() => { setActive(false)}, 10000)
+        setTimeout(() => { setStarting("Get ready!")}, 8000)
+        setTimeout(() => { setActive(false)
+                            setStarting("")
+        }, 12000)
     }
 
     let gameFinished = () => {
@@ -47,6 +51,7 @@ export const WelcomeScreen = () => {
 
   return (
     <div className="main-container">
+         {starting ? <div id="starting" className="gradient-text">{starting}</div> : null}
         {!loaded && <div className="loader">
                         <div className="loader-inner">
                             <div className="loader-line-wrap"><div className="loader-line"></div></div>
