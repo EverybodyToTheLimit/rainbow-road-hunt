@@ -28,8 +28,62 @@ import waldo from '../assets/characters/waldo.png'
 import yellowpuffle from '../assets/characters/yellow-puffle.png'
 import yoshi from '../assets/characters/yoshi.png'
 import zoidberg from '../assets/characters/zoidberg.png'
+import { app } from './firebaseConfig'
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
 
-let DataLoader = () => {}
+
+async function importFromFirebase () {
+
+const storage = getStorage(app)
+var storageRef = ref(storage, '/');
+let characters = []
+// Find all the prefixes and items.
+listAll(storageRef)
+  .then(async (res) => {
+    console.log(res)
+    res.items.forEach((itemRef) => {
+        getDownloadURL (ref(storage, itemRef._location.path_))
+        .then((url) => {
+            let name = itemRef._location.path_.substring(0, itemRef._location.path_.length - 4)
+            let result = {"name":name, "hit" : false, "url":url}
+            characters.push(result)
+        
+        })
+    });
+}
+
+).catch((error) => {
+    // Uh-oh, an error occurred!
+  });
+
+return characters
+}
+
+
+
+
+// const flyingdutchman = ref(storage,'')
+// const hellboy = ref(storage,'')
+// const jasperbeardly = ref(storage,'')
+// const johnny = ref(storage,'')
+// const kermit = ref(storage,'')
+// const knuckles = ref(storage,'')
+// const leonardo = ref(storage,'')
+// const masterchief = ref(storage,'')
+// const mordecai = ref(storage,'')
+// const mrburns = ref(storage,'')
+// const mrcrabs = ref(storage,'')
+// const owl = ref(storage,'')
+// const renhoek = ref(storage,'')
+// const skeetervalentine = ref(storage,'')
+// const spongebobpolice = ref(storage,'')
+// const squirtle = ref(storage,'')
+// const sully = ref(storage,'')
+// const waldo = ref(storage,'')
+// const yellowpuffle = ref(storage,'')
+// const yoshi = ref(storage,'')
+// const zoidberg = ref(storage,'')
+
 
 
     let winningCoords = [
@@ -69,38 +123,38 @@ let DataLoader = () => {}
     
 
     
-    let characters = [
-        {"name":"big-bird", "hit" : false, "url":bigbird},
-        {"name":"bugs-bunny", "hit" : false, "url":bugsbunny},
-        {"name":"catdog", "hit" : false, "url":catdog},
-        {"name":"dora-maar", "hit" : false, "url":doramaar},
-        {"name":"dr-doom", "hit" : false, "url":drdoom},
-        {"name":"dr-manhattan", "hit" : false, "url":drmanhattan},
-        {"name":"eddy", "hit" : false, "url":eddy},
-        {"name":"filthy-frank", "hit" : false, "url":filthyfrank},
-        {"name":"flash", "hit" : false, "url":flash},
-        {"name":"flying-dutchman", "hit" : false, "url":flyingdutchman},
-        {"name":"hellboy", "hit" : false, "url":hellboy},
-        {"name":"jasper-beardly", "hit" : false, "url":jasperbeardly},
-        {"name":"johnny", "hit" : false, "url":johnny},
-        {"name":"kermit", "hit" : false, "url":kermit},
-        {"name":"knuckles", "hit" : false, "url":knuckles},
-        {"name":"leonardo", "hit" : false, "url":leonardo},
-        {"name":"masterchief", "hit" : false, "url":masterchief},
-        {"name":"mordecai", "hit" : false, "url":mordecai},
-        {"name":"mr-burns", "hit" : false, "url":mrburns},
-        {"name":"mr-crabs", "hit" : false, "url":mrcrabs},
-        {"name":"owl", "hit" : false, "url":owl},
-        {"name":"ren-hoek", "hit" : false, "url":renhoek},
-        {"name":"skeeter-valentine", "hit" : false, "url":skeetervalentine},
-        {"name":"spongebob-police", "hit" : false, "url":spongebobpolice},
-        {"name":"squirtle", "hit" : false, "url":squirtle},
-        {"name":"sully", "hit" : false, "url":sully},
-        {"name":"waldo", "hit" : false, "url":waldo},
-        {"name":"yellow-puffle", "hit" : false, "url":yellowpuffle},
-        {"name":"yoshi", "hit" : false, "url":yoshi},
-        {"name":"zoidberg", "hit" : false, "url":zoidberg},
-       ]
+    // let characters = [
+    //     {"name":"big-bird", "hit" : false, "url":bigbird},
+    //     {"name":"bugs-bunny", "hit" : false, "url":bugsbunny},
+    //     {"name":"catdog", "hit" : false, "url":catdog},
+    //     {"name":"dora-maar", "hit" : false, "url":doramaar},
+    //     {"name":"dr-doom", "hit" : false, "url":drdoom},
+    //     {"name":"dr-manhattan", "hit" : false, "url":drmanhattan},
+    //     {"name":"eddy", "hit" : false, "url":eddy},
+    //     {"name":"filthy-frank", "hit" : false, "url":filthyfrank},
+    //     {"name":"flash", "hit" : false, "url":flash},
+    //     {"name":"flying-dutchman", "hit" : false, "url":flyingdutchman},
+    //     {"name":"hellboy", "hit" : false, "url":hellboy},
+    //     {"name":"jasper-beardly", "hit" : false, "url":jasperbeardly},
+    //     {"name":"johnny", "hit" : false, "url":johnny},
+    //     {"name":"kermit", "hit" : false, "url":kermit},
+    //     {"name":"knuckles", "hit" : false, "url":knuckles},
+    //     {"name":"leonardo", "hit" : false, "url":leonardo},
+    //     {"name":"masterchief", "hit" : false, "url":masterchief},
+    //     {"name":"mordecai", "hit" : false, "url":mordecai},
+    //     {"name":"mr-burns", "hit" : false, "url":mrburns},
+    //     {"name":"mr-crabs", "hit" : false, "url":mrcrabs},
+    //     {"name":"owl", "hit" : false, "url":owl},
+    //     {"name":"ren-hoek", "hit" : false, "url":renhoek},
+    //     {"name":"skeeter-valentine", "hit" : false, "url":skeetervalentine},
+    //     {"name":"spongebob-police", "hit" : false, "url":spongebobpolice},
+    //     {"name":"squirtle", "hit" : false, "url":squirtle},
+    //     {"name":"sully", "hit" : false, "url":sully},
+    //     {"name":"waldo", "hit" : false, "url":waldo},
+    //     {"name":"yellow-puffle", "hit" : false, "url":yellowpuffle},
+    //     {"name":"yoshi", "hit" : false, "url":yoshi},
+    //     {"name":"zoidberg", "hit" : false, "url":zoidberg},
+    //    ]
     
     let leaderboard = [
         {"initials" : "BAR", "time": 6, "characters" : ["johnny", "owl", "waldo"]},
@@ -109,7 +163,7 @@ let DataLoader = () => {}
     ]
 
 export {
-characters,
+importFromFirebase,
 leaderboard,
 winningCoords
 }

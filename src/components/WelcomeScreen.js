@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { characters } from './DataLoader'
 import { Game } from './Game'
 import _ from 'lodash'
+import { getStorage, ref, getDownloadURL, listAll } from "firebase/storage";
+import { app } from './firebaseConfig'
 
 
 export const WelcomeScreen = () => {
@@ -17,9 +18,6 @@ export const WelcomeScreen = () => {
 
     
     
-    setTimeout(() => { 
-        setLoaded(true)
-    }, 2000)
 
     let startNewGame = () => {
         setChar1Loaded(true)
@@ -40,11 +38,40 @@ export const WelcomeScreen = () => {
         setChar2Loaded(false)
         setChar3Loaded(false)
         setActive(true)
-        setChosenCharacters(_.sampleSize(characters, 3))
+        setChosenCharacters(_.sampleSize(chars, 3))
+        setLoaded(true)
     }
 
+
+
     useEffect(() => {
-        setChosenCharacters(_.sampleSize(characters, 3))
+
+        const loadStorage = async () => {
+            setLoaded(false)
+            const storage = getStorage(app)
+            let characters = []
+            var storageRef = ref(storage, '/');
+            await listAll(storageRef)
+                .then((res) => 
+                {
+                res.items.forEach ((itemRef) => {
+                        getDownloadURL (ref(storage, itemRef._location.path_))
+                        .then((url) => {
+                            let name = itemRef._location.path_.substring(0, itemRef._location.path_.length - 4)
+                            let result = {"name":name, "hit" : false, "url":url}
+                            characters.push(result)
+                            setCharacters(characters)
+                            if (characters.length == 32) {                        
+                                setChosenCharacters(_.sampleSize(characters, 3))
+                                setLoaded(true)
+                            }
+                        })
+                    })
+
+                })
+        }
+                loadStorage()
+
     },[])
 
 
