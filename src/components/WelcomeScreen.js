@@ -15,11 +15,13 @@ export const WelcomeScreen = () => {
     let [char2Loaded, setChar2Loaded] = useState(false)
     let [char3Loaded, setChar3Loaded] = useState(false)
     let [starting, setStarting] = useState("")
+    let [isDisabled, setIsDisabled] = useState(false)
 
     
     
 
     let startNewGame = () => {
+        setIsDisabled(true)
         setChar1Loaded(true)
         setChar2Loaded(true)
         setChar3Loaded(true)
@@ -29,6 +31,7 @@ export const WelcomeScreen = () => {
         setTimeout(() => { setStarting("Get ready!")}, 8000)
         setTimeout(() => { setActive(false)
                             setStarting("")
+                            setIsDisabled(false)
         }, 12000)
     }
 
@@ -50,18 +53,18 @@ export const WelcomeScreen = () => {
             setLoaded(false)
             const storage = getStorage(app)
             let characters = []
-            var storageRef = ref(storage, '/');
+            var storageRef = ref(storage, '/images/');
             await listAll(storageRef)
                 .then((res) => 
                 {
                 res.items.forEach ((itemRef) => {
                         getDownloadURL (ref(storage, itemRef._location.path_))
                         .then((url) => {
-                            let name = itemRef._location.path_.substring(0, itemRef._location.path_.length - 4)
+                            let name = itemRef._location.path_.substring(7, itemRef._location.path_.length - 4)
                             let result = {"name":name, "hit" : false, "url":url}
                             characters.push(result)
                             setCharacters(characters)
-                            if (characters.length == 32) {                        
+                            if (characters.length === 30) {                        
                                 setChosenCharacters(_.sampleSize(characters, 3))
                                 setLoaded(true)
                             }
@@ -97,7 +100,7 @@ export const WelcomeScreen = () => {
                     <div style={{backgroundImage: `url(${char2Loaded})`}} className={(char2Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
                     <div style={{backgroundImage: `url(${char3Loaded})`}} className={(char3Loaded === true) ? "char-loader char-welcome" : "char-welcome"}></div>
                 </div>
-                <button className="button-85" onClick={startNewGame}>Start New Game</button>
+                <button className={!isDisabled ? "button-85" : "button-85 disabled"} disabled={isDisabled} onClick={startNewGame}>Start New Game</button>
             </div>
         ) : null }
         {!active ? <Game chars={chosenCharacters} gameFinished={gameFinished}/> : null}

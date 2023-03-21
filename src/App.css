@@ -582,3 +582,11 @@ ul {
   top: 0;
   border-radius: 10px;
 }
+
+.disabled:after { 
+  background: #777574;
+}
+
+.disabled:before { 
+  animation: none
+}

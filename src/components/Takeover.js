@@ -1,17 +1,48 @@
+import { some } from 'lodash'
 import React, { useEffect, useState } from 'react'
-import { leaderboard } from './DataLoader'
 import Confetti from 'react-confetti'
 
 
 export const Takeover = ({callback, time}) => {
 
   let [leaderTable, setLeaderTable] = useState(null)
-  let [updatedLeaderBoard, setUpdatedLeaderBoard] = useState([])
+  let [playerName, setPlayername] = useState("")
+  let [updatedLeaderboard, setUpdatedLeaderboard] = useState(null)
+  let [submitted, setSubmitted] = useState(false)
 
+
+  let leaderboard = [
+    {"initials" : "BAR", "time": 6},
+    {"initials" : "BAZ", "time": 18},
+    {"initials" : "BOO", "time": 123},
+  ]
+
+  let updateLeaderboard = (event) => {
+      event.preventDefault();
+      let updatedTable = [...updatedLeaderboard]
+      const index = updatedTable.findIndex((el) => el.active === true )
+      updatedTable[index].initials = playerName
+      
+      let result1 = []
+      updatedTable.forEach((el, i) => {
+      result1.push(<li key={i+"l1"} className="result-position">{i+1}</li>)
+      result1.push(<li key={i+"l2"} className="result-initials">{el.initials}</li>)
+      result1.push(<li key={i+"l3"} className="result-time">{el.time}</li>)
+    })
+
+      setLeaderTable(result1)
+      setSubmitted(true)
+  }
+
+  let updatePlayer = (event) => {
+    setPlayername(event.target.value)
+  }
 
   useEffect(() => {
-    let result = [...leaderboard, {"initials" : "YOU", "time" : (time.hours * 360 + time.minutes * 60 + time.seconds)}]
+    setSubmitted(false)
+    let result = [...leaderboard, {"initials" : "YOU", "time" : (time.hours * 360 + time.minutes * 60 + time.seconds),"active" : true}]
     let something = result.sort((val1, val2) => (val1.time > val2.time) ? 1 : (val1.time < val2.time) ? -1 : 0)
+    setUpdatedLeaderboard(something)
     let result1 = []
     something.forEach((el, i) => {
         result1.push(<li key={i+"l1"} className="result-position">{i+1}</li>)
@@ -33,7 +64,11 @@ export const Takeover = ({callback, time}) => {
               <li className="result-header">Position</li><li >Initials</li><li>Time</li>
               {leaderTable}
             </ul>
-          <button className="button-85" onClick={callback}>Start New Game?</button>
+          { !submitted ? <form onSubmit={updateLeaderboard}>
+              <input type="text" value={playerName} onChange={updatePlayer}></input>
+              <button>submit</button>
+            </form> : null}
+           <button className="button-85" onClick={callback}>Start New Game?</button> 
           <Confetti/>
 
     </div>
