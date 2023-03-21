@@ -1,7 +1,5 @@
-import { some } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
-
 
 export const Takeover = ({callback, time}) => {
 
@@ -27,7 +25,7 @@ export const Takeover = ({callback, time}) => {
       updatedTable.forEach((el, i) => {
       result1.push(<li key={i+"l1"} className="result-position">{i+1}</li>)
       result1.push(<li key={i+"l2"} className="result-initials">{el.initials}</li>)
-      result1.push(<li key={i+"l3"} className="result-time">{el.time}</li>)
+      result1.push(<li key={i+"l3"} className="result-time">{new Date(el.time * 1000).toISOString().substring(14, 19)}</li>)
     })
 
       setLeaderTable(result1)
@@ -47,7 +45,7 @@ export const Takeover = ({callback, time}) => {
     something.forEach((el, i) => {
         result1.push(<li key={i+"l1"} className="result-position">{i+1}</li>)
         result1.push(<li key={i+"l2"} className="result-initials">{el.initials}</li>)
-        result1.push(<li key={i+"l3"} className="result-time">{el.time}</li>)
+        result1.push(<li key={i+"l3"} className="result-time">{new Date(el.time * 1000).toISOString().substring(14, 19)}</li>)
     })
     setLeaderTable(result1)
 },[])
