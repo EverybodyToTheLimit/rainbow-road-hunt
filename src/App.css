@@ -29,7 +29,16 @@ ul {
   min-height: 100vh;
 }
 
-
+.footer {
+  font-family: 'Open Sans',Arial,Helvetica,sans-serif;
+  display: flex;
+  justify-content: center;
+  background-color:rgba(255, 250, 240, 0.753);
+  width: 100%;
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+}
 .header {
   background-color:rgba(255, 250, 240, 0.425);
   width: 100%;
@@ -168,13 +177,15 @@ ul {
 
 #target {
   position: absolute;
-  top: 60px;
+  top: -15px;
+  left: -15px;
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border-style: dashed;
-  border-color: coral;
-  border-width: 2px;
+  border-color: rgb(0, 0, 0);
+  border-width: 5px;
+  
 }
 
 
@@ -364,6 +375,11 @@ ul {
   padding-bottom: 1rem;
 }
 
+
+
+
+
+
 @keyframes spin {
   0%, 15% {
   transform: rotate(0);
@@ -430,27 +446,68 @@ ul {
   #left {
 
     position: absolute;
-    left: -25px;
-    top: -22px;
+    left: -110px;
+    top: -100px;
 
   }
   #right{
     position: absolute;
-    right: -170px;
-    top: -22px;
+    left: 30px;
+    top: -100px;
 
 
   }
   #mid {
     position: absolute;
-    right: -110px;
-    top: -35px;
+    left: -40px;
+    top: -100px;
 
   }
 
-  #target {
-    right: -90px;
+  #left-edgex {
+
+    position: absolute;
+    left: 0px;
+    top: -115px;
+
   }
+  #right-edgex{
+    position: absolute;
+    left: 0px;
+    top: 35px;
+
+
+  }
+  #mid-edgex {
+    position: absolute;
+    left: 30px;
+    top: -40px;
+
+  }
+
+  #left-edgey {
+
+    position: absolute;
+    right: 0px;
+    top: -115px;
+
+  }
+  #right-edgey{
+    position: absolute;
+    right: 0px;
+    top: 35px;
+
+
+  }
+  #mid-edgey {
+    position: absolute;
+    right: 30px;
+    top: -40px;
+
+  }
+
+
+
 }
 
 @media (max-width: 1024px) {
@@ -501,6 +558,69 @@ ul {
 
 #starting { 
   background-color: #e1644198;
+}
+
+#left {
+
+  position: absolute;
+  left: -75px;
+  top: -100px;
+
+}
+#right{
+  position: absolute;
+  left: 25px;
+  top: -100px;
+
+
+}
+#mid {
+  position: absolute;
+  left: -25px;
+  top: -80px;
+
+}
+
+#left-edgex {
+
+  position: absolute;
+  left: 0px;
+  top: -75px;
+
+}
+#right-edgex{
+  position: absolute;
+  left: 0px;
+  top: 20px;
+
+
+}
+#mid-edgex {
+  position: absolute;
+  left: 25px;
+  top: -28px;
+
+}
+
+#left-edgey {
+
+  position: absolute;
+  right: 0px;
+  top: -75px;
+
+}
+#right-edgey{
+  position: absolute;
+  right: 0px;
+  top: 20px;
+
+
+}
+#mid-edgey {
+  position: absolute;
+  right: 25px;
+  top: -28px;
+
 }
 
 }
@@ -611,3 +731,64 @@ input {
   box-sizing: border-box!important;
   max-width: 100%!important;
 }
+
+form {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+
+.button-45 {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.button-45:active,
+.button-45:hover,
+.button-45:focus {
+  outline: 0;
+}
+
+
+.button-45:active {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.button-45:hover {
+  background-color: #FFE3E3;
+  border-color: #FAA4A4;
+}
+
+.button-45:active:hover,
+.button-45:focus:hover,
+.button-45:focus {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+

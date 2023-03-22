@@ -88,6 +88,7 @@ export const Game = ({chars, gameFinished}) => {
                 <MainBody background={image} tryAttempt={catchTryAttempt}/>
                 <ContextMenu coordinates={tryAttempt} check={callwinCheck} characters={characters}/> 
             </div>
+            <h6 className="footer">Image titled "Raibow Road" by &nbsp;<a href="https://foundation.app/@Danielkeoghart">@Daniel Keogh</a></h6>
         </div>
         ) : null}
     </div>

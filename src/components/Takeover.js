@@ -100,8 +100,8 @@ export const Takeover = ({callback, time}) => {
               {leaderTable}
             </ul>
           { !submitted ? <form onSubmit={updateLeaderboard}>
-              <input type="text" value={playerName} onChange={updatePlayer}></input>
-              <button>Submit your score</button>
+              <input type="text" minLength="2" maxLength="3" placeholder="Enter your initials"value={playerName} onChange={updatePlayer}></input>
+              <button className="button-45">Submit</button>
             </form> : null}
            <button className="button-85" onClick={callback}>Start New Game?</button> 
           <Confetti/>
@@ -109,4 +109,5 @@ export const Takeover = ({callback, time}) => {
     </div>
   )
 }
+
 
