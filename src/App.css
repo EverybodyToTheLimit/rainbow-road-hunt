@@ -153,6 +153,8 @@ ul {
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%);
+    background-color: #e1644198;
+    width: 100%;
 
 }
 
@@ -554,6 +556,10 @@ ul {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+  background-color: #e1644198;
+  width: 100%;
+
+  
 }
 
 #starting { 
@@ -631,6 +637,7 @@ ul {
     font-size: 5rem;
     top: 30%;
     left: 50%;
+
   }
 
 }

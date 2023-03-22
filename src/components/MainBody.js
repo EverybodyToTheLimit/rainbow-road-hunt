@@ -28,7 +28,6 @@ export const MainBody = ({background, tryAttempt}) => {
 
   return (
     <div> 
-    <div>{JSON.stringify(mouse.x)} + {JSON.stringify(mouse.y)} + {JSON.stringify(mouse.elementWidth)} + {JSON.stringify(mouse.elementHeight)}</div>
     <img alt="main" id="main-body" ref={target} onClick={handleClick} src={background}></img>
     </div>
   )
